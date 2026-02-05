@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: wrapper_service
+
+server:
+  port: 8083
+
+aws:
+  secretsmanager:
+    enabled: true
+    secret-name: srivani-keys
+    region: us-east-1
+
+gemini:
+  api:
+    key: ${GEMINI_API_KEY}
+    endpoint: https://generativelanguage.googleapis.com/v1
+    model: gemini-2.5-flash
+
+openai:
+  api:
+    key: ${OPENAI_API_KEY}
+    endpoint: https://api.openai.com/v1/chat/completions
+    model: gpt-4o-mini
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
